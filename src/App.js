@@ -1,11 +1,16 @@
+import { useState } from "react";
 import "./App.css";
-import Room from "./Room";
+import Parent from "./Parent";
+import ValueContext from "./ValueContext";
 
 function App() {
+  let value = useState(55);
   return (
-    <div className="App">
-      <Room />
-    </div>
+    <ValueContext.Provider value={value}>
+      <div className="App">
+        <Parent />
+      </div>
+    </ValueContext.Provider>
   );
 }
 
