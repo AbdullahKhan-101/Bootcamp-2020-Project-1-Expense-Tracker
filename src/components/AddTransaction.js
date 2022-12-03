@@ -9,13 +9,17 @@ const AddTransaction = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addTransaction({
-      id: new Date().getTime(),
-      amount: +amount,
-      description: description,
-    });
-    setAmount("");
-    setDescription("");
+    if (amount && description) {
+      addTransaction({
+        id: new Date().getTime(),
+        amount: +amount,
+        description: description,
+      });
+      setAmount("");
+      setDescription("");
+    } else {
+      alert("Please provide information");
+    }
   };
 
   return (
