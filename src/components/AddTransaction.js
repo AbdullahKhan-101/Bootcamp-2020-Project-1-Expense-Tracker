@@ -1,72 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../context/globalState";
 
 const AddTransaction = () => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
 
+  const { addTransaction } = useContext(GlobalContext);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addTransaction({
+      id: new Date().getTime(),
+      amount: +amount,
+      description: description,
+    });
+    setAmount("");
+    setDescription("");
+  };
+
   return (
     <div>
-      <h3
-        style={{
-          borderBottom: "1px solid lightgray",
-          marginTop: "20px",
-          marginBottom: "12px",
-          paddingBottom: "6px",
-        }}
-      >
-        Add New Transaction
-      </h3>
-      <form>
-        <div className="form_control">
-          <label htmlFor="description"></label>
+      <h3 className="new_heading">Add New Transaction</h3>
+      <form onSubmit={onSubmit}>
+        <div>
           <input
-            style={{
-              width: "100%",
-              border: "none",
-              outline: "none",
-              padding: "10px",
-              fontSize: "16px",
-            }}
             type="text"
-            id="description"
             placeholder="Enter Details Here"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div className="form_control">
-          <label htmlFor="amount"></label>
+        <div>
           <input
-            style={{
-              width: "100%",
-              border: "none",
-              outline: "none",
-              padding: "10px",
-              fontSize: "16px",
-              marginTop: "10px",
-            }}
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            id="amount"
             placeholder="Enter Amount Here"
           />
         </div>
-        <button
-          style={{
-            width: "100%",
-            border: "none",
-            outline: "none",
-            padding: "10px",
-            fontSize: "16px",
-            marginTop: "20px",
-            cursor: "pointer",
-            backgroundColor: "darkcyan",
-            color: "white",
-            fontWeight: "600",
-          }}
-          type="submit"
-        >
+        <button className="submit" type="submit">
           Add Transaction
         </button>
       </form>

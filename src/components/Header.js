@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  return <h1 style={{ margin: "25px 0" }}>Expense Tracker</h1>;
+  return <h1 className="main_heading">Expense Tracker</h1>;
 };
 
 export default Header;

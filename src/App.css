@@ -1,40 +1,124 @@
 .App {
   text-align: center;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 320px;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main_heading {
+  margin: 25px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.account_summary {
+  margin: 20px 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: white;
+  /* width: 100%; */
+
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.05);
+}
+
+.income_container {
+  border-right: 1px solid lightgray;
+  padding-right: 25px;
+}
+.account_summary h4 {
+  font-size: 17px;
+}
+.money.plus {
+  color: darkgreen;
+}
+.money.minus {
+  color: darkred;
+}
+.money {
+  font-size: 23px;
+  font-weight: 600;
+}
+.expense_container {
+  padding-left: 25px;
+}
+.transaction {
+  background-color: white;
+  margin-bottom: 8px;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  font-weight: 500;
+  /* width: 95%; */
+  transition: all 0.3s ease-out;
+
+  color: rgb(78, 78, 78);
+}
+.transaction.minus {
+  border-right: 4px solid darkred;
+}
+.transaction.plus {
+  border-right: 4px solid darkgreen;
+}
+.transaction:hover .delete_btn {
+  display: block;
+}
+.delete_btn {
+  transition: all 0.3s ease-out;
+  display: none;
+  position: absolute;
+  left: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
   color: white;
+  background-color: darkred;
+  padding: 2px 6px;
+  font-size: 18px;
 }
-
-.App-link {
-  color: #61dafb;
+ul {
+  list-style: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+}
+.new_heading {
+  padding-bottom: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+}
+input {
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background-color: white;
+  width: 92%;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px 12px rgba(0, 0, 0, 0.02);
+}
+.submit {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid gray;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: darkcyan;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.submit:active {
+  transform: scale(0.9);
 }
